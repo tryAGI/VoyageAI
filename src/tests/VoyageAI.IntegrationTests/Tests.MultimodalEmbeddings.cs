@@ -17,6 +17,7 @@ public partial class Tests
             model: "voyage-multimodal-3");
 
         response.Data.Should().NotBeEmpty();
+        response.Data[0].Embedding.Should().NotBeEmpty();
         response.Usage.Should().NotBeNull();
     }
 
@@ -37,5 +38,6 @@ public partial class Tests
             model: "voyage-multimodal-3");
 
         response.Data.Should().NotBeEmpty();
+        response.Data[0].Embedding.Should().NotBeEmpty();
     }
 }
