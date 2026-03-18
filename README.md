@@ -1,25 +1,36 @@
 # VoyageAI
 
-[![NuGet](https://img.shields.io/nuget/v/tryAGI.VoyageAI.svg)](https://www.nuget.org/packages/tryAGI.VoyageAI/)
-[![Downloads](https://img.shields.io/nuget/dt/tryAGI.VoyageAI.svg)](https://www.nuget.org/packages/tryAGI.VoyageAI/)
+[![Nuget package](https://img.shields.io/nuget/vpre/VoyageAI)](https://www.nuget.org/packages/VoyageAI/)
+[![dotnet](https://github.com/tryAGI/VoyageAI/actions/workflows/dotnet.yml/badge.svg?branch=main)](https://github.com/tryAGI/VoyageAI/actions/workflows/dotnet.yml)
+[![License: MIT](https://img.shields.io/github/license/tryAGI/VoyageAI)](https://github.com/tryAGI/VoyageAI/blob/main/LICENSE)
+[![Discord](https://img.shields.io/discord/1115206893015662663?label=Discord&logo=discord&logoColor=white&color=d82679)](https://discord.gg/Ca2xhfBf3v)
 
-Generated C# SDK for the [Voyage AI](https://www.voyageai.com/) API — high-quality text embeddings and reranking for search and RAG pipelines.
+## Features 🔥
+- Fully generated C# SDK based on [official Voyage AI OpenAPI specification](https://raw.githubusercontent.com/voyage-ai/openapi/main/voyage-openapi.yml) using [AutoSDK](https://github.com/HavenDV/AutoSDK)
+- Same day update to support new features
+- Updated and supported automatically if there are no breaking changes
+- All modern .NET features - nullability, trimming, NativeAOT, etc.
+- Microsoft.Extensions.AI `IEmbeddingGenerator` support
 
-## Features
-- Text and multimodal embeddings (voyage-3, voyage-code-3, voyage-large-2, etc.)
-- Document reranking
-- Fully generated from the official Voyage AI OpenAPI specification
-- NativeAOT/trimming compatible
-- Strong-named assembly
-
-## Usage
-
+### Usage
 ```csharp
 using VoyageAI;
 
-var client = new VoyageAIClient("your-api-key");
+using var client = new VoyageAIClient(apiKey);
 ```
 
-## License
+## Support
 
-MIT
+Priority place for bugs: https://github.com/tryAGI/VoyageAI/issues
+Priority place for ideas and general questions: https://github.com/tryAGI/VoyageAI/discussions
+Discord: https://discord.gg/Ca2xhfBf3v
+
+## Acknowledgments
+
+![JetBrains logo](https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.png)
+
+This project is supported by JetBrains through the [Open Source Support Program](https://jb.gg/OpenSourceSupport).
+
+![CodeRabbit logo](https://opengraph.githubassets.com/1c51002d7d0bbe0c4fd72ff8f2e58192702f73a7037102f77e4dbb98ac00ea8f/marketplace/coderabbitai)
+
+This project is supported by CodeRabbit through the [Open Source Support Program](https://github.com/marketplace/coderabbitai).
