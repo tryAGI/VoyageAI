@@ -16,13 +16,17 @@ public abstract class MultimodalContent
     /// <summary>
     /// Creates an image content piece from a URL.
     /// </summary>
+#pragma warning disable CA1054 // URI parameters should not be strings
     public static MultimodalContent ImageUrl(string url) => new ImageUrlContent(url);
+#pragma warning restore CA1054
 
     /// <summary>
     /// Creates an image content piece from base64-encoded data.
     /// </summary>
     /// <param name="base64DataUrl">Data URL in format: data:[mediatype];base64,[data]</param>
+#pragma warning disable CA1054 // URI parameters should not be strings
     public static MultimodalContent ImageBase64(string base64DataUrl) => new ImageBase64Content(base64DataUrl);
+#pragma warning restore CA1054
 
     internal abstract void WriteTo(Utf8JsonWriter writer);
 }
@@ -75,6 +79,8 @@ public sealed class MultimodalInput
     /// </summary>
     public MultimodalInput(params MultimodalContent[] content)
     {
+        ArgumentNullException.ThrowIfNull(content);
+
         foreach (var c in content)
         {
             Content.Add(c);
@@ -135,6 +141,9 @@ public static class MultimodalEmbeddingsExtensions
         bool? truncation = null,
         CancellationToken cancellationToken = default)
     {
+        ArgumentNullException.ThrowIfNull(client);
+        ArgumentNullException.ThrowIfNull(inputs);
+
         using var stream = new MemoryStream();
         using (var writer = new Utf8JsonWriter(stream))
         {
