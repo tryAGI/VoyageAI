@@ -9,7 +9,9 @@ public partial class Tests
             Environment.GetEnvironmentVariable("VOYAGEAI_API_KEY") ??
             throw new AssertInconclusiveException("VOYAGEAI_API_KEY environment variable is not found.");
 
-        var client = new VoyageAIClient(apiKey);
+        var httpClient = new HttpClient(new RateLimitRetryHandler());
+
+        var client = new VoyageAIClient(apiKey, httpClient: httpClient);
 
         return client;
     }
