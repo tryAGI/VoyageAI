@@ -18,9 +18,8 @@ servers:
 components:
   securitySchemes:
     ApiKeyAuth:
-      type: apiKey
-      in: header
-      name: 'Authorization: Bearer'
+      type: http
+      scheme: bearer
       x-default: $VOYAGE_API_KEY
 security:
 - ApiKeyAuth: []

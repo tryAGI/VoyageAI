@@ -6,7 +6,7 @@ namespace VoyageAI
     public sealed partial class VoyageAIClient
     {
         /// <inheritdoc/>
-        public void AuthorizeUsingApiKeyInHeader(
+        public void AuthorizeUsingBearer(
             string apiKey)
         {
             apiKey = apiKey ?? throw new global::System.ArgumentNullException(nameof(apiKey));
@@ -14,9 +14,9 @@ namespace VoyageAI
             Authorizations.Clear();
             Authorizations.Add(new global::VoyageAI.EndPointAuthorization
             {
-                Type = "ApiKey",
+                Type = "Http",
                 Location = "Header",
-                Name = "Authorization: Bearer",
+                Name = "Bearer",
                 Value = apiKey,
             });
         }
