@@ -6,10 +6,10 @@ namespace VoyageAI
     public partial interface IVoyageAIClient
     {
         /// <summary>
-        /// Authorize using bearer authentication.
+        /// Authorize using ApiKey authentication.
         /// </summary>
         /// <param name="apiKey"></param>
-        public void AuthorizeUsingBearer(
+        public void AuthorizeUsingApiKeyInHeader(
             string apiKey);
     }
 }
