@@ -29,7 +29,6 @@ cd src/libs/VoyageAI && ./generate.sh
 The SDK code is **entirely auto-generated** -- do not manually edit files in `src/libs/VoyageAI/Generated/`.
 
 1. `src/libs/VoyageAI/openapi.yaml` -- the Voyage AI OpenAPI spec (fetched from `https://raw.githubusercontent.com/voyage-ai/openapi/main/voyage-openapi.yml`)
-2. `src/helpers/FixOpenApiSpec/` -- converts OpenAPI 3.1 to 3.0 format for compatibility
 3. `src/libs/VoyageAI/generate.sh` -- orchestrates: download spec, fix spec, run AutoSDK CLI, output to `Generated/`
 4. CI auto-updates the spec and creates PRs if changes are detected
 
@@ -47,8 +46,6 @@ The SDK code is **entirely auto-generated** -- do not manually edit files in `sr
 |---------|---------|
 | `src/libs/VoyageAI/` | Main SDK library (`VoyageAIClient`) |
 | `src/tests/VoyageAI.IntegrationTests/` | Integration tests against real Voyage AI API |
-| `src/helpers/FixOpenApiSpec/` | OpenAPI spec fixer tool |
-| `src/helpers/GenerateDocs/` | Documentation generator from integration tests |
 
 ### Build Configuration
 
