@@ -35,6 +35,9 @@ var embeddings = await generator.GenerateAsync(
 Console.WriteLine($"Embedding dimension: {embeddings[0].Vector.Length}");
 ```
 
+<!-- EXAMPLES:START -->
+<!-- EXAMPLES:END -->
+
 ## Support
 
 Priority place for bugs: https://github.com/tryAGI/VoyageAI/issues
