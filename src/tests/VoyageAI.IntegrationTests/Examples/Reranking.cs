@@ -1,3 +1,9 @@
+/*
+order: 70
+title: Reranking
+slug: reranking
+*/
+
 namespace VoyageAI.IntegrationTests;
 
 public partial class Tests

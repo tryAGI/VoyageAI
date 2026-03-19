@@ -1,3 +1,9 @@
+/*
+order: 40
+title: Embeddings
+slug: embeddings
+*/
+
 namespace VoyageAI.IntegrationTests;
 
 public partial class Tests
