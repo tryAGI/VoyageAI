@@ -21,12 +21,10 @@ namespace VoyageAI
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Rerankers<br/>
         /// Voyage reranker endpoint receives as input a query, a list of documents, and other arguments such as the model name, and returns a response containing the reranking results.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::VoyageAI.ApiException"></exception>
@@ -253,7 +251,6 @@ namespace VoyageAI
                 }
             }
         }
-
         /// <summary>
         /// Rerankers<br/>
         /// Voyage reranker endpoint receives as input a query, a list of documents, and other arguments such as the model name, and returns a response containing the reranking results.
