@@ -4,12 +4,10 @@ namespace VoyageAI
 {
     public partial interface IVoyageAIClient
     {
-
         /// <summary>
         /// Rerankers<br/>
         /// Voyage reranker endpoint receives as input a query, a list of documents, and other arguments such as the model name, and returns a response containing the reranking results.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::VoyageAI.ApiException"></exception>
@@ -17,7 +15,6 @@ namespace VoyageAI
 
             global::VoyageAI.RerankerApiRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Rerankers<br/>
         /// Voyage reranker endpoint receives as input a query, a list of documents, and other arguments such as the model name, and returns a response containing the reranking results.

@@ -21,12 +21,10 @@ namespace VoyageAI
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Multimodal embedding models<br/>
         /// The Voyage multimodal embedding endpoint returns vector representations for a given list of multimodal inputs consisting of text, images, or an interleaving of both modalities.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::VoyageAI.ApiException"></exception>
@@ -253,7 +251,6 @@ namespace VoyageAI
                 }
             }
         }
-
         /// <summary>
         /// Multimodal embedding models<br/>
         /// The Voyage multimodal embedding endpoint returns vector representations for a given list of multimodal inputs consisting of text, images, or an interleaving of both modalities.
