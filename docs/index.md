@@ -37,8 +37,6 @@ Console.WriteLine($"Embedding dimension: {embeddings[0].Vector.Length}");
 
 <!-- EXAMPLES:START -->
 ### Embedding Generator Generate Async
-
-
 ```csharp
 using var client = GetAuthorizedApi();
 IEmbeddingGenerator<string, Embedding<float>> generator = client;
@@ -52,8 +50,6 @@ var embeddings = await generator.GenerateAsync(
 ```
 
 ### Embedding Generator Get Service Returns Metadata
-
-
 ```csharp
 using var client = new VoyageAIClient("test-api-key");
 IEmbeddingGenerator<string, Embedding<float>> generator = client;
@@ -62,8 +58,6 @@ var metadata = generator.GetService<EmbeddingGeneratorMetadata>();
 ```
 
 ### Embedding Generator Get Service Returns Self
-
-
 ```csharp
 using var client = new VoyageAIClient("test-api-key");
 IEmbeddingGenerator<string, Embedding<float>> generator = client;
@@ -72,8 +66,6 @@ var self = generator.GetService<VoyageAIClient>();
 ```
 
 ### Embeddings
-
-
 ```csharp
 using var client = GetAuthorizedApi();
 
@@ -83,8 +75,6 @@ var response = await client.EmbeddingsApiAsync(
 ```
 
 ### Multimodal Embeddings Text And Image Url
-
-
 ```csharp
 using var client = GetAuthorizedApi();
 
@@ -101,8 +91,6 @@ var response = await client.MultimodalEmbeddingsAsync(
 ```
 
 ### Multimodal Embeddings Text Only
-
-
 ```csharp
 using var client = GetAuthorizedApi();
 
@@ -117,8 +105,6 @@ var response = await client.MultimodalEmbeddingsAsync(
 ```
 
 ### Reranking
-
-
 ```csharp
 using var client = GetAuthorizedApi();
 
@@ -146,7 +132,3 @@ Discord: https://discord.gg/Ca2xhfBf3v
 ![JetBrains logo](https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.png)
 
 This project is supported by JetBrains through the [Open Source Support Program](https://jb.gg/OpenSourceSupport).
-
-![CodeRabbit logo](https://opengraph.githubassets.com/1c51002d7d0bbe0c4fd72ff8f2e58192702f73a7037102f77e4dbb98ac00ea8f/marketplace/coderabbitai)
-
-This project is supported by CodeRabbit through the [Open Source Support Program](https://github.com/marketplace/coderabbitai).
