@@ -4,10 +4,12 @@ namespace VoyageAI
 {
     public partial interface IVoyageAIClient
     {
+
         /// <summary>
         /// Multimodal embedding models<br/>
         /// The Voyage multimodal embedding endpoint returns vector representations for a given list of multimodal inputs consisting of text, images, or an interleaving of both modalities.
         /// </summary>
+
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::VoyageAI.ApiException"></exception>
