@@ -4,10 +4,12 @@ namespace VoyageAI
 {
     public partial interface IVoyageAIClient
     {
+
         /// <summary>
         /// Text embedding models<br/>
         /// Voyage text embedding endpoint receives as input a string (or a list of strings) and other arguments such as the preferred model name, and returns a response containing a list of embeddings.
         /// </summary>
+
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::VoyageAI.ApiException"></exception>
