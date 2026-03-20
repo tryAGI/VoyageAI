@@ -5,12 +5,12 @@ nav:
   - Microsoft.Extensions.AI: guides/meai.md
 # EXAMPLES:START
 - Examples:
-  - EmbeddingGenerator.GenerateAsync: examples/embeddinggenerator-generateasync.md
-  - EmbeddingGenerator.GetService.ReturnsMetadata: examples/embeddinggenerator-getservice-returnsmetadata.md
-  - EmbeddingGenerator.GetService.ReturnsSelf: examples/embeddinggenerator-getservice-returnsself.md
+  - Embedding Generator Generate Async: examples/embedding-generator-generate-async.md
+  - Embedding Generator Get Service Returns Metadata: examples/embedding-generator-get-service-returns-metadata.md
+  - Embedding Generator Get Service Returns Self: examples/embedding-generator-get-service-returns-self.md
   - Embeddings: examples/embeddings.md
-  - MultimodalEmbeddings.TextAndImageUrl: examples/multimodalembeddings-textandimageurl.md
-  - MultimodalEmbeddings.TextOnly: examples/multimodalembeddings-textonly.md
+  - Multimodal Embeddings Text And Image Url: examples/multimodal-embeddings-text-and-image-url.md
+  - Multimodal Embeddings Text Only: examples/multimodal-embeddings-text-only.md
   - Reranking: examples/reranking.md
 # EXAMPLES:END
 

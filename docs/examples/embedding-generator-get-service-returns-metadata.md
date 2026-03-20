@@ -1,4 +1,4 @@
-# EmbeddingGenerator.GetService.ReturnsMetadata
+# Embedding Generator Get Service Returns Metadata
 
 
 

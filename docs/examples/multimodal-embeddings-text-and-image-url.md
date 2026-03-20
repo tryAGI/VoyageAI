@@ -1,4 +1,4 @@
-# MultimodalEmbeddings.TextAndImageUrl
+# Multimodal Embeddings Text And Image Url
 
 
 

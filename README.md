@@ -36,6 +36,103 @@ Console.WriteLine($"Embedding dimension: {embeddings[0].Vector.Length}");
 ```
 
 <!-- EXAMPLES:START -->
+### Embedding Generator Generate Async
+
+
+```csharp
+using var client = GetAuthorizedApi();
+IEmbeddingGenerator<string, Embedding<float>> generator = client;
+
+var embeddings = await generator.GenerateAsync(
+    ["Hello, world!"],
+    new EmbeddingGenerationOptions
+    {
+        ModelId = "voyage-3-lite",
+    });
+```
+
+### Embedding Generator Get Service Returns Metadata
+
+
+```csharp
+using var client = new VoyageAIClient("test-api-key");
+IEmbeddingGenerator<string, Embedding<float>> generator = client;
+
+var metadata = generator.GetService<EmbeddingGeneratorMetadata>();
+```
+
+### Embedding Generator Get Service Returns Self
+
+
+```csharp
+using var client = new VoyageAIClient("test-api-key");
+IEmbeddingGenerator<string, Embedding<float>> generator = client;
+
+var self = generator.GetService<VoyageAIClient>();
+```
+
+### Embeddings
+
+
+```csharp
+using var client = GetAuthorizedApi();
+
+var response = await client.EmbeddingsApiAsync(
+    input: "Hello, world!",
+    model: "voyage-3-lite");
+```
+
+### Multimodal Embeddings Text And Image Url
+
+
+```csharp
+using var client = GetAuthorizedApi();
+
+var inputs = new List<MultimodalInput>
+{
+    new(
+        MultimodalContent.Text("This is a banana."),
+        MultimodalContent.ImageUrl("https://raw.githubusercontent.com/voyage-ai/voyage-multimodal-3/refs/heads/main/images/banana.jpg")),
+};
+
+var response = await client.MultimodalEmbeddingsAsync(
+    inputs: inputs,
+    model: "voyage-multimodal-3");
+```
+
+### Multimodal Embeddings Text Only
+
+
+```csharp
+using var client = GetAuthorizedApi();
+
+var inputs = new List<MultimodalInput>
+{
+    new(MultimodalContent.Text("Hello, world!")),
+};
+
+var response = await client.MultimodalEmbeddingsAsync(
+    inputs: inputs,
+    model: "voyage-multimodal-3");
+```
+
+### Reranking
+
+
+```csharp
+using var client = GetAuthorizedApi();
+
+var response = await client.RerankerApiAsync(
+    query: "What is the capital of France?",
+    documents: [
+        "Paris is the capital of France.",
+        "Berlin is the capital of Germany.",
+        "London is the capital of the United Kingdom.",
+    ],
+    model: "rerank-2-lite",
+    topK: 2,
+    returnDocuments: true);
+```
 <!-- EXAMPLES:END -->
 
 ## Support

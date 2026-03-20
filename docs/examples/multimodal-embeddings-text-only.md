@@ -1,4 +1,4 @@
-# MultimodalEmbeddings.TextOnly
+# Multimodal Embeddings Text Only
 
 
 
