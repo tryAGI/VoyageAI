@@ -16,13 +16,13 @@ namespace VoyageAI
     public enum EmbeddingsApiRequestEncodingFormat
     {
         /// <summary>
-        /// 
-        /// </summary>
-        OpenapiJsonNullSentinelValue2bf936000fe44250987aE5ddb203e464,
-        /// <summary>
         /// `base64`. &lt;ul&gt; &lt;li&gt; If `null`, each embedding is an array of float numbers when `output_dtype` is set to `float` and as an array of integers for all other values of `output_dtype` (`int8`, `uint8`, `binary`, and `ubinary`). &lt;li&gt; If `base64`, the embeddings are represented as a &lt;a href="https://docs.python.org/3/library/base64.html" target="_blank"&gt;Base64-encoded&lt;/a&gt; NumPy array of: &lt;/li&gt;
         /// </summary>
         Base64,
+        /// <summary>
+        /// 
+        /// </summary>
+        OpenapiJsonNullSentinelValue2bf936000fe44250987aE5ddb203e464,
     }
 
     /// <summary>
@@ -37,8 +37,8 @@ namespace VoyageAI
         {
             return value switch
             {
-                EmbeddingsApiRequestEncodingFormat.OpenapiJsonNullSentinelValue2bf936000fe44250987aE5ddb203e464 => "openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464",
                 EmbeddingsApiRequestEncodingFormat.Base64 => "base64",
+                EmbeddingsApiRequestEncodingFormat.OpenapiJsonNullSentinelValue2bf936000fe44250987aE5ddb203e464 => "openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -49,8 +49,8 @@ namespace VoyageAI
         {
             return value switch
             {
-                "openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464" => EmbeddingsApiRequestEncodingFormat.OpenapiJsonNullSentinelValue2bf936000fe44250987aE5ddb203e464,
                 "base64" => EmbeddingsApiRequestEncodingFormat.Base64,
+                "openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464" => EmbeddingsApiRequestEncodingFormat.OpenapiJsonNullSentinelValue2bf936000fe44250987aE5ddb203e464,
                 _ => null,
             };
         }
