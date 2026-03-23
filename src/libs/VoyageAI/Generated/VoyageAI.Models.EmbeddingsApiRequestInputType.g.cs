@@ -15,6 +15,10 @@ namespace VoyageAI
     public enum EmbeddingsApiRequestInputType
     {
         /// <summary>
+        /// `query`, `document`. &lt;ul&gt; &lt;li&gt; When `input_type` is `null`, the embedding model directly converts the inputs (`texts`) into numerical vectors. For retrieval/search purposes, where a "query" is used to search for relevant information among a collection of data referred to as "documents," we recommend specifying whether your inputs (`texts`) are intended as queries or documents by setting `input_type` to `query` or `document`, respectively. In these cases, Voyage automatically prepends a prompt to your `inputs` before vectorizing them, creating vectors more tailored for retrieval/search tasks. Embeddings generated with and without the `input_type` argument are compatible. &lt;/li&gt; &lt;li&gt; For transparency, the following prompts are prepended to your input. &lt;/li&gt;
+        /// </summary>
+        Document,
+        /// <summary>
         /// 
         /// </summary>
         OpenapiJsonNullSentinelValue2bf936000fe44250987aE5ddb203e464,
@@ -22,10 +26,6 @@ namespace VoyageAI
         /// `query`, `document`. &lt;ul&gt; &lt;li&gt; When `input_type` is `null`, the embedding model directly converts the inputs (`texts`) into numerical vectors. For retrieval/search purposes, where a "query" is used to search for relevant information among a collection of data referred to as "documents," we recommend specifying whether your inputs (`texts`) are intended as queries or documents by setting `input_type` to `query` or `document`, respectively. In these cases, Voyage automatically prepends a prompt to your `inputs` before vectorizing them, creating vectors more tailored for retrieval/search tasks. Embeddings generated with and without the `input_type` argument are compatible. &lt;/li&gt; &lt;li&gt; For transparency, the following prompts are prepended to your input. &lt;/li&gt;
         /// </summary>
         Query,
-        /// <summary>
-        /// `query`, `document`. &lt;ul&gt; &lt;li&gt; When `input_type` is `null`, the embedding model directly converts the inputs (`texts`) into numerical vectors. For retrieval/search purposes, where a "query" is used to search for relevant information among a collection of data referred to as "documents," we recommend specifying whether your inputs (`texts`) are intended as queries or documents by setting `input_type` to `query` or `document`, respectively. In these cases, Voyage automatically prepends a prompt to your `inputs` before vectorizing them, creating vectors more tailored for retrieval/search tasks. Embeddings generated with and without the `input_type` argument are compatible. &lt;/li&gt; &lt;li&gt; For transparency, the following prompts are prepended to your input. &lt;/li&gt;
-        /// </summary>
-        Document,
     }
 
     /// <summary>
@@ -40,9 +40,9 @@ namespace VoyageAI
         {
             return value switch
             {
+                EmbeddingsApiRequestInputType.Document => "document",
                 EmbeddingsApiRequestInputType.OpenapiJsonNullSentinelValue2bf936000fe44250987aE5ddb203e464 => "openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464",
                 EmbeddingsApiRequestInputType.Query => "query",
-                EmbeddingsApiRequestInputType.Document => "document",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -53,9 +53,9 @@ namespace VoyageAI
         {
             return value switch
             {
+                "document" => EmbeddingsApiRequestInputType.Document,
                 "openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464" => EmbeddingsApiRequestInputType.OpenapiJsonNullSentinelValue2bf936000fe44250987aE5ddb203e464,
                 "query" => EmbeddingsApiRequestInputType.Query,
-                "document" => EmbeddingsApiRequestInputType.Document,
                 _ => null,
             };
         }
