@@ -14,6 +14,6 @@ yq -i '.components.securitySchemes.ApiKeyAuth = {"type": "http", "scheme": "bear
 autosdk generate openapi.yaml \
   --namespace VoyageAI \
   --clientClassName VoyageAIClient \
-  --targetFramework net8.0 \
+  --targetFramework net10.0 \
   --output Generated \
   --exclude-deprecated-operations
