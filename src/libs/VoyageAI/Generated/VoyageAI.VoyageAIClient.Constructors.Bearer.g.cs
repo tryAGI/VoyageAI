@@ -6,6 +6,7 @@ namespace VoyageAI
     public sealed partial class VoyageAIClient
     {
         /// <inheritdoc cref="VoyageAIClient(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::VoyageAI.EndPointAuthorization}?, bool)"/>
+
         public VoyageAIClient(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,

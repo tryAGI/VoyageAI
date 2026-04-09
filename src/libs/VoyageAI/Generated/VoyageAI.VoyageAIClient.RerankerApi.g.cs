@@ -5,6 +5,25 @@ namespace VoyageAI
 {
     public partial class VoyageAIClient
     {
+
+
+        private static readonly global::VoyageAI.EndPointSecurityRequirement s_RerankerApiSecurityRequirement0 =
+            new global::VoyageAI.EndPointSecurityRequirement
+            {
+                Authorizations = new global::VoyageAI.EndPointAuthorizationRequirement[]
+                {                    new global::VoyageAI.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::VoyageAI.EndPointSecurityRequirement[] s_RerankerApiSecurityRequirements =
+            new global::VoyageAI.EndPointSecurityRequirement[]
+            {                s_RerankerApiSecurityRequirement0,
+            };
         partial void PrepareRerankerApiArguments(
             global::System.Net.Http.HttpClient httpClient,
             global::VoyageAI.RerankerApiRequest request);
@@ -41,9 +60,15 @@ namespace VoyageAI
                 httpClient: HttpClient,
                 request: request);
 
+
+            var __authorizations = global::VoyageAI.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_RerankerApiSecurityRequirements,
+                operationName: "RerankerApiAsync");
+
             var __pathBuilder = new global::VoyageAI.PathBuilder(
                 path: "/rerank",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -53,7 +78,7 @@ namespace VoyageAI
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
