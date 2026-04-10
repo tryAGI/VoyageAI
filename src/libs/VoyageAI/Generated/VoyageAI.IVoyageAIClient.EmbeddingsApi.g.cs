@@ -9,11 +9,13 @@ namespace VoyageAI
         /// Voyage text embedding endpoint receives as input a string (or a list of strings) and other arguments such as the preferred model name, and returns a response containing a list of embeddings.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::VoyageAI.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::VoyageAI.EmbeddingsApiResponse> EmbeddingsApiAsync(
 
             global::VoyageAI.EmbeddingsApiRequest request,
+            global::VoyageAI.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Text embedding models<br/>
@@ -56,6 +58,7 @@ namespace VoyageAI
         /// &lt;/ul&gt;<br/>
         /// Default Value: openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::VoyageAI.EmbeddingsApiResponse> EmbeddingsApiAsync(
@@ -66,6 +69,7 @@ namespace VoyageAI
             int? outputDimension = default,
             global::VoyageAI.EmbeddingsApiRequestOutputDtype? outputDtype = default,
             global::VoyageAI.EmbeddingsApiRequestEncodingFormat? encodingFormat = default,
+            global::VoyageAI.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
