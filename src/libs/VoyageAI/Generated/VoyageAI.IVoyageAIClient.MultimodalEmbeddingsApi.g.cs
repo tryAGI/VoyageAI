@@ -9,11 +9,13 @@ namespace VoyageAI
         /// The Voyage multimodal embedding endpoint returns vector representations for a given list of multimodal inputs consisting of text, images, or an interleaving of both modalities.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::VoyageAI.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::VoyageAI.MultimodalEmbeddingsApiResponse> MultimodalEmbeddingsApiAsync(
 
             global::VoyageAI.MultimodalEmbeddingsApiRequest request,
+            global::VoyageAI.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Multimodal embedding models<br/>
@@ -105,6 +107,7 @@ namespace VoyageAI
         /// Format in which the embeddings are encoded. Defaults to `null`. &lt;ul&gt; &lt;li&gt; If `null`, the embeddings are represented as a list of floating-point numbers. &lt;/li&gt;  &lt;li&gt; If `base64`, the embeddings are represented as a Base64-encoded NumPy array of single-precision floats. &lt;/li&gt;  &lt;/ul&gt;<br/>
         /// Default Value: openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::VoyageAI.MultimodalEmbeddingsApiResponse> MultimodalEmbeddingsApiAsync(
@@ -113,6 +116,7 @@ namespace VoyageAI
             global::VoyageAI.MultimodalEmbeddingsApiRequestInputType? inputType = default,
             bool? truncation = default,
             global::VoyageAI.MultimodalEmbeddingsApiRequestOutputEncoding? outputEncoding = default,
+            global::VoyageAI.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
