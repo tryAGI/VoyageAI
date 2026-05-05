@@ -21,6 +21,19 @@ namespace VoyageAI
         /// Rerankers<br/>
         /// Voyage reranker endpoint receives as input a query, a list of documents, and other arguments such as the model name, and returns a response containing the reranking results.
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::VoyageAI.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::VoyageAI.AutoSDKHttpResponse<global::VoyageAI.RerankerApiResponse>> RerankerApiAsResponseAsync(
+
+            global::VoyageAI.RerankerApiRequest request,
+            global::VoyageAI.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Rerankers<br/>
+        /// Voyage reranker endpoint receives as input a query, a list of documents, and other arguments such as the model name, and returns a response containing the reranking results.
+        /// </summary>
         /// <param name="query">
         /// The query as a string. The query can contain a maximum of 4000 tokens for `rerank-2`, 2000 tokens for `rerank-2-lite` and `rerank-1`, and 1000 tokens for `rerank-lite-1`.
         /// </param>
