@@ -41,7 +41,9 @@ public partial class VoyageAIClient : Meai.IEmbeddingGenerator<string, Meai.Embe
             request.OutputDimension = dimensions;
         }
 
-        var response = await EmbeddingsApiAsync(request, cancellationToken).ConfigureAwait(false);
+        var response = await EmbeddingsApiAsync(
+            request: request,
+            cancellationToken: cancellationToken).ConfigureAwait(false);
 
         var embeddings = new Meai.GeneratedEmbeddings<Meai.Embedding<float>>();
 
