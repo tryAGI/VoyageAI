@@ -145,5 +145,6 @@ namespace VoyageAI
         public EmbeddingsApiRequest()
         {
         }
+
     }
 }

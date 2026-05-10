@@ -231,5 +231,6 @@ namespace VoyageAI
         public MultimodalEmbeddingsApiRequest()
         {
         }
+
     }
 }

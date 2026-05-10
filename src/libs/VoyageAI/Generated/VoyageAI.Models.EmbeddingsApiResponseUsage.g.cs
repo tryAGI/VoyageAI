@@ -41,5 +41,6 @@ namespace VoyageAI
         public EmbeddingsApiResponseUsage()
         {
         }
+
     }
 }
