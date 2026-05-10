@@ -63,5 +63,6 @@ namespace VoyageAI
         public RerankerApiResponseDataItem()
         {
         }
+
     }
 }
