@@ -1,5 +1,4 @@
 #nullable enable
-#pragma warning disable CS0618
 
 using System.CommandLine;
 
@@ -7,7 +6,7 @@ namespace VoyageAI.CLI.Commands;
 
 internal static partial class EndpointsEmbeddingsApiCommandApiCommand
 {
-    private static Option<global::VoyageAI.OneOf<string, global::System.Collections.Generic.IList<string>>> InputOption { get; } = new(
+    private static Option<global::VoyageAI.OneOf<string, global::System.Collections.Generic.IList<string>>> Input { get; } = new(
         name: @"--input")
     {
         Description = @"A single text string, or a list of texts as a list of strings, such as `[""I like cats"", ""I also like dogs""]`. Currently, we have two constraints on the list: <ul>  <li> The maximum length of the list is 128. </li>  <li> The total number of tokens in the list is at most 1M for `voyage-3-lite`; 320K for `voyage-3` and `voyage-2`; and 120K for `voyage-3-large`, `voyage-code-3`, `voyage-large-2-instruct`, `voyage-finance-2`, `voyage-multilingual-2`, `voyage-law-2`, and `voyage-large-2`. </li> <ul>
@@ -66,18 +65,18 @@ internal static partial class EndpointsEmbeddingsApiCommandApiCommand
 </ul>
 ",
     };
-      private static Option<string?> RequestInput { get; } = new(@"--request-input")
+      private static Option<string?> Input { get; } = new("--input")
       {
           Description = "Load request JSON from a file path, '-' for stdin, or an inline JSON object/array string.",
       };
 
-      private static Option<string?> RequestJson { get; } = new(@"--request-json")
+      private static Option<string?> RequestJson { get; } = new("--request-json")
       {
           Description = "Request body as JSON.",
           Hidden = true,
       };
 
-      private static Option<string?> RequestFile { get; } = new(@"--request-file")
+      private static Option<string?> RequestFile { get; } = new("--request-file")
       {
           Description = "Path to a JSON request file, or '-' for stdin.",
           Hidden = true,
@@ -107,25 +106,25 @@ internal static partial class EndpointsEmbeddingsApiCommandApiCommand
     {
         var command = new Command(@"embeddings-api", @"Text embedding models
 Voyage text embedding endpoint receives as input a string (or a list of strings) and other arguments such as the preferred model name, and returns a response containing a list of embeddings.");
-                        command.Options.Add(InputOption);
+                        command.Options.Add(Input);
                         command.Options.Add(Model);
                         command.Options.Add(InputType);
                         command.Options.Add(Truncation);
                         command.Options.Add(OutputDimension);
                         command.Options.Add(OutputDtype);
                         command.Options.Add(EncodingFormat);
-          command.Options.Add(RequestInput);
+          command.Options.Add(Input);
           command.Options.Add(RequestJson);
           command.Options.Add(RequestFile);
           command.Validators.Add(result =>
           {
-              var hasInput = result.GetResult(RequestInput) is not null;
+              var hasInput = result.GetResult(Input) is not null;
               var hasRequestJson = result.GetResult(RequestJson) is not null;
               var hasRequestFile = result.GetResult(RequestFile) is not null;
               var specifiedCount = (hasInput ? 1 : 0) + (hasRequestJson ? 1 : 0) + (hasRequestFile ? 1 : 0);
               if (specifiedCount > 1)
               {
-                  result.AddError(@"Specify at most one of --request-input, --request-json, or --request-file.");
+                  result.AddError("Specify at most one of --input, --request-json, or --request-file.");
               }
           });
 
@@ -134,18 +133,18 @@ Voyage text embedding endpoint receives as input a string (or a list of strings)
             {
                         var __requestBase = await CliRuntime.ReadRequestOrDefaultAsync<global::VoyageAI.EmbeddingsApiRequest>(
                             parseResult,
-                            RequestInput,
+                            Input,
                             RequestJson,
                             RequestFile,
                             global::VoyageAI.SourceGenerationContext.Default,
                             cancellationToken).ConfigureAwait(false);
-                        var input = parseResult.GetRequiredValue(InputOption);
+                        var input = parseResult.GetRequiredValue(Input);
                         var model = parseResult.GetRequiredValue(Model);
-                        var inputType = CliRuntime.WasSpecified(parseResult, InputType) ? parseResult.GetValue(InputType) : __requestBase is not null ? __requestBase.InputType : default;
-                        var truncation = CliRuntime.WasSpecified(parseResult, Truncation) ? parseResult.GetValue(Truncation) : __requestBase is not null ? __requestBase.Truncation : default;
-                        var outputDimension = CliRuntime.WasSpecified(parseResult, OutputDimension) ? parseResult.GetValue(OutputDimension) : __requestBase is not null ? __requestBase.OutputDimension : default;
-                        var outputDtype = CliRuntime.WasSpecified(parseResult, OutputDtype) ? parseResult.GetValue(OutputDtype) : __requestBase is not null ? __requestBase.OutputDtype : default;
-                        var encodingFormat = CliRuntime.WasSpecified(parseResult, EncodingFormat) ? parseResult.GetValue(EncodingFormat) : __requestBase is not null ? __requestBase.EncodingFormat : default;
+                        var inputType = parseResult.GetValue(InputType) ?? __requestBase?.InputType;
+                        var truncation = parseResult.GetValue(Truncation) ?? __requestBase?.Truncation;
+                        var outputDimension = parseResult.GetValue(OutputDimension) ?? __requestBase?.OutputDimension;
+                        var outputDtype = parseResult.GetValue(OutputDtype) ?? __requestBase?.OutputDtype;
+                        var encodingFormat = parseResult.GetValue(EncodingFormat) ?? __requestBase?.EncodingFormat;
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
