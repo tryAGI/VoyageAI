@@ -1,4 +1,5 @@
 #nullable enable
+#pragma warning disable CS0618
 
 using System.CommandLine;
 
@@ -108,18 +109,18 @@ internal static partial class EndpointsMultimodalEmbeddingsApiCommandApiCommand
         Description = @"Format in which the embeddings are encoded. Defaults to `null`. <ul> <li> If `null`, the embeddings are represented as a list of floating-point numbers. </li>  <li> If `base64`, the embeddings are represented as a Base64-encoded NumPy array of single-precision floats. </li>  </ul>
 ",
     };
-      private static Option<string?> Input { get; } = new("--input")
+      private static Option<string?> Input { get; } = new(@"--input")
       {
           Description = "Load request JSON from a file path, '-' for stdin, or an inline JSON object/array string.",
       };
 
-      private static Option<string?> RequestJson { get; } = new("--request-json")
+      private static Option<string?> RequestJson { get; } = new(@"--request-json")
       {
           Description = "Request body as JSON.",
           Hidden = true,
       };
 
-      private static Option<string?> RequestFile { get; } = new("--request-file")
+      private static Option<string?> RequestFile { get; } = new(@"--request-file")
       {
           Description = "Path to a JSON request file, or '-' for stdin.",
           Hidden = true,
@@ -165,7 +166,7 @@ The Voyage multimodal embedding endpoint returns vector representations for a gi
               var specifiedCount = (hasInput ? 1 : 0) + (hasRequestJson ? 1 : 0) + (hasRequestFile ? 1 : 0);
               if (specifiedCount > 1)
               {
-                  result.AddError("Specify at most one of --input, --request-json, or --request-file.");
+                  result.AddError(@"Specify at most one of --input, --request-json, or --request-file.");
               }
           });
 
@@ -181,9 +182,9 @@ The Voyage multimodal embedding endpoint returns vector representations for a gi
                             cancellationToken).ConfigureAwait(false);
                         var inputs = parseResult.GetRequiredValue(Inputs);
                         var model = parseResult.GetRequiredValue(Model);
-                        var inputType = parseResult.GetValue(InputType) ?? __requestBase?.InputType;
-                        var truncation = parseResult.GetValue(Truncation) ?? __requestBase?.Truncation;
-                        var outputEncoding = parseResult.GetValue(OutputEncoding) ?? __requestBase?.OutputEncoding;
+                        var inputType = CliRuntime.WasSpecified(parseResult, InputType) ? parseResult.GetValue(InputType) : __requestBase is not null ? __requestBase.InputType : default;
+                        var truncation = CliRuntime.WasSpecified(parseResult, Truncation) ? parseResult.GetValue(Truncation) : __requestBase is not null ? __requestBase.Truncation : default;
+                        var outputEncoding = CliRuntime.WasSpecified(parseResult, OutputEncoding) ? parseResult.GetValue(OutputEncoding) : __requestBase is not null ? __requestBase.OutputEncoding : default;
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 

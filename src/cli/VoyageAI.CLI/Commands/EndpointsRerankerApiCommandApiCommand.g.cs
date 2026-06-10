@@ -1,4 +1,5 @@
 #nullable enable
+#pragma warning disable CS0618
 
 using System.CommandLine;
 
@@ -46,18 +47,18 @@ internal static partial class EndpointsRerankerApiCommandApiCommand
         name: @"--truncation",
         description: @"Whether to truncate the input to satisfy the ""context length limit"" on the query and the documents. Defaults to `true`. <ul> <li> If `true`,  the query and documents will be truncated to fit within the context length limit, before processed by the reranker model. </li> <li> If `false`, an error will be raised when the query exceeds 4000 tokens for `rerank-2`; 2000 tokens `rerank-2-lite` and `rerank-1`; and 1000 tokens for `rerank-lite-1`, or the sum of the number of tokens in the query and the number of tokens in any single document exceeds 16000 for `rerank-2`; 8000 for `rerank-2-lite` and `rerank-1`; and 4000 for `rerank-lite-1`. </li> </ul>
 ");
-      private static Option<string?> Input { get; } = new("--input")
+      private static Option<string?> Input { get; } = new(@"--input")
       {
           Description = "Load request JSON from a file path, '-' for stdin, or an inline JSON object/array string.",
       };
 
-      private static Option<string?> RequestJson { get; } = new("--request-json")
+      private static Option<string?> RequestJson { get; } = new(@"--request-json")
       {
           Description = "Request body as JSON.",
           Hidden = true,
       };
 
-      private static Option<string?> RequestFile { get; } = new("--request-file")
+      private static Option<string?> RequestFile { get; } = new(@"--request-file")
       {
           Description = "Path to a JSON request file, or '-' for stdin.",
           Hidden = true,
@@ -105,7 +106,7 @@ Voyage reranker endpoint receives as input a query, a list of documents, and oth
               var specifiedCount = (hasInput ? 1 : 0) + (hasRequestJson ? 1 : 0) + (hasRequestFile ? 1 : 0);
               if (specifiedCount > 1)
               {
-                  result.AddError("Specify at most one of --input, --request-json, or --request-file.");
+                  result.AddError(@"Specify at most one of --input, --request-json, or --request-file.");
               }
           });
 
@@ -122,9 +123,9 @@ Voyage reranker endpoint receives as input a query, a list of documents, and oth
                         var query = parseResult.GetRequiredValue(Query);
                         var documents = parseResult.GetRequiredValue(Documents);
                         var model = parseResult.GetRequiredValue(Model);
-                        var topK = parseResult.GetValue(TopK) ?? __requestBase?.TopK;
-                        var returnDocuments = parseResult.GetValue(ReturnDocuments) ?? __requestBase?.ReturnDocuments;
-                        var truncation = parseResult.GetValue(Truncation) ?? __requestBase?.Truncation;
+                        var topK = CliRuntime.WasSpecified(parseResult, TopK) ? parseResult.GetValue(TopK) : __requestBase is not null ? __requestBase.TopK : default;
+                        var returnDocuments = CliRuntime.WasSpecified(parseResult, ReturnDocuments) ? parseResult.GetValue(ReturnDocuments) : __requestBase is not null ? __requestBase.ReturnDocuments : default;
+                        var truncation = CliRuntime.WasSpecified(parseResult, Truncation) ? parseResult.GetValue(Truncation) : __requestBase is not null ? __requestBase.Truncation : default;
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
