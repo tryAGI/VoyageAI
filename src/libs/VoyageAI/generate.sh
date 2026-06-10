@@ -18,3 +18,20 @@ autosdk generate openapi.yaml \
   --output Generated \
   --exclude-deprecated-operations \
   --security-scheme Http:Header:Bearer
+
+rm -rf ../../cli/VoyageAI.CLI
+
+autosdk cli-project openapi.yaml \
+  --output ../../cli/VoyageAI.CLI \
+  --sdk-project ../../libs/VoyageAI/VoyageAI.csproj \
+  --targetFramework net10.0 \
+  --namespace VoyageAI \
+  --clientClassName VoyageAIClient \
+  --package-id VoyageAI.CLI \
+  --tool-command-name tryagi-voyage-ai \
+  --user-secrets-id VoyageAI.CLI \
+  --api-key-env-var VOYAGEAI_API_KEY \
+  --base-url-env-var VOYAGEAI_BASE_URL \
+  --cli-credential-file \
+  --exclude-deprecated-operations \
+  --security-scheme Http:Header:Bearer
