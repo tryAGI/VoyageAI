@@ -7,7 +7,7 @@
     <LangVersion>preview</LangVersion>
     <PackAsTool>true</PackAsTool>
     <PackageId>VoyageAI.CLI</PackageId>
-    <ToolCommandName>tryagi-voyage-ai</ToolCommandName>
+    <ToolCommandName>voyage-ai</ToolCommandName>
     <UserSecretsId>VoyageAI.CLI</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
