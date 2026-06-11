@@ -19,6 +19,13 @@ using VoyageAI;
 using var client = new VoyageAIClient(apiKey);
 ```
 
+### CLI
+
+```bash
+dotnet tool install --global VoyageAI.CLI --prerelease
+voyage-ai api --help
+```
+
 ### Microsoft.Extensions.AI
 
 The SDK implements [`IEmbeddingGenerator`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.iembeddinggenerator-2):
