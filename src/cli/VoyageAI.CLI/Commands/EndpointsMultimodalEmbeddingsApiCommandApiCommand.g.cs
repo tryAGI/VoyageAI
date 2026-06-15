@@ -182,9 +182,9 @@ The Voyage multimodal embedding endpoint returns vector representations for a gi
                             cancellationToken).ConfigureAwait(false);
                         var inputs = parseResult.GetRequiredValue(Inputs);
                         var model = parseResult.GetRequiredValue(Model);
-                        var inputType = CliRuntime.WasSpecified(parseResult, InputType) ? parseResult.GetValue(InputType) : __requestBase is not null ? __requestBase.InputType : default;
-                        var truncation = CliRuntime.WasSpecified(parseResult, Truncation) ? parseResult.GetValue(Truncation) : __requestBase is not null ? __requestBase.Truncation : default;
-                        var outputEncoding = CliRuntime.WasSpecified(parseResult, OutputEncoding) ? parseResult.GetValue(OutputEncoding) : __requestBase is not null ? __requestBase.OutputEncoding : default;
+                        var inputType = CliRuntime.WasSpecified(parseResult, InputType) ? parseResult.GetValue(InputType) : (__requestBase is { } __InputTypeBaseValue ? __InputTypeBaseValue.InputType : default);
+                        var truncation = CliRuntime.WasSpecified(parseResult, Truncation) ? parseResult.GetValue(Truncation) : (__requestBase is { } __TruncationBaseValue ? __TruncationBaseValue.Truncation : default);
+                        var outputEncoding = CliRuntime.WasSpecified(parseResult, OutputEncoding) ? parseResult.GetValue(OutputEncoding) : (__requestBase is { } __OutputEncodingBaseValue ? __OutputEncodingBaseValue.OutputEncoding : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
