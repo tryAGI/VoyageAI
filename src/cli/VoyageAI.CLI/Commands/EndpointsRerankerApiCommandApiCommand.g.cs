@@ -123,9 +123,9 @@ Voyage reranker endpoint receives as input a query, a list of documents, and oth
                         var query = parseResult.GetRequiredValue(Query);
                         var documents = parseResult.GetRequiredValue(Documents);
                         var model = parseResult.GetRequiredValue(Model);
-                        var topK = CliRuntime.WasSpecified(parseResult, TopK) ? parseResult.GetValue(TopK) : __requestBase is not null ? __requestBase.TopK : default;
-                        var returnDocuments = CliRuntime.WasSpecified(parseResult, ReturnDocuments) ? parseResult.GetValue(ReturnDocuments) : __requestBase is not null ? __requestBase.ReturnDocuments : default;
-                        var truncation = CliRuntime.WasSpecified(parseResult, Truncation) ? parseResult.GetValue(Truncation) : __requestBase is not null ? __requestBase.Truncation : default;
+                        var topK = CliRuntime.WasSpecified(parseResult, TopK) ? parseResult.GetValue(TopK) : (__requestBase is { } __TopKBaseValue ? __TopKBaseValue.TopK : default);
+                        var returnDocuments = CliRuntime.WasSpecified(parseResult, ReturnDocuments) ? parseResult.GetValue(ReturnDocuments) : (__requestBase is { } __ReturnDocumentsBaseValue ? __ReturnDocumentsBaseValue.ReturnDocuments : default);
+                        var truncation = CliRuntime.WasSpecified(parseResult, Truncation) ? parseResult.GetValue(Truncation) : (__requestBase is { } __TruncationBaseValue ? __TruncationBaseValue.Truncation : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
