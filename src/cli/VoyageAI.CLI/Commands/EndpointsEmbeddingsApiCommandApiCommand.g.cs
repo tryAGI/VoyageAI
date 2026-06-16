@@ -141,11 +141,11 @@ Voyage text embedding endpoint receives as input a string (or a list of strings)
                             cancellationToken).ConfigureAwait(false);
                         var input = parseResult.GetRequiredValue(InputOption);
                         var model = parseResult.GetRequiredValue(Model);
-                        var inputType = CliRuntime.WasSpecified(parseResult, InputType) ? parseResult.GetValue(InputType) : __requestBase is not null ? __requestBase.InputType : default;
-                        var truncation = CliRuntime.WasSpecified(parseResult, Truncation) ? parseResult.GetValue(Truncation) : __requestBase is not null ? __requestBase.Truncation : default;
-                        var outputDimension = CliRuntime.WasSpecified(parseResult, OutputDimension) ? parseResult.GetValue(OutputDimension) : __requestBase is not null ? __requestBase.OutputDimension : default;
-                        var outputDtype = CliRuntime.WasSpecified(parseResult, OutputDtype) ? parseResult.GetValue(OutputDtype) : __requestBase is not null ? __requestBase.OutputDtype : default;
-                        var encodingFormat = CliRuntime.WasSpecified(parseResult, EncodingFormat) ? parseResult.GetValue(EncodingFormat) : __requestBase is not null ? __requestBase.EncodingFormat : default;
+                        var inputType = CliRuntime.WasSpecified(parseResult, InputType) ? parseResult.GetValue(InputType) : (__requestBase is { } __InputTypeBaseValue ? __InputTypeBaseValue.InputType : default);
+                        var truncation = CliRuntime.WasSpecified(parseResult, Truncation) ? parseResult.GetValue(Truncation) : (__requestBase is { } __TruncationBaseValue ? __TruncationBaseValue.Truncation : default);
+                        var outputDimension = CliRuntime.WasSpecified(parseResult, OutputDimension) ? parseResult.GetValue(OutputDimension) : (__requestBase is { } __OutputDimensionBaseValue ? __OutputDimensionBaseValue.OutputDimension : default);
+                        var outputDtype = CliRuntime.WasSpecified(parseResult, OutputDtype) ? parseResult.GetValue(OutputDtype) : (__requestBase is { } __OutputDtypeBaseValue ? __OutputDtypeBaseValue.OutputDtype : default);
+                        var encodingFormat = CliRuntime.WasSpecified(parseResult, EncodingFormat) ? parseResult.GetValue(EncodingFormat) : (__requestBase is { } __EncodingFormatBaseValue ? __EncodingFormatBaseValue.EncodingFormat : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
