@@ -4,7 +4,7 @@
 namespace VoyageAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class EmbeddingsApiResponse
     {
@@ -27,7 +27,7 @@ namespace VoyageAI
         public string? Model { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
         public global::VoyageAI.EmbeddingsApiResponseUsage? Usage { get; set; }

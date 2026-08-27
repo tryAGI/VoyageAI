@@ -20,7 +20,7 @@ namespace VoyageAI.JsonConverters
                     {
                         return global::VoyageAI.EmbeddingsApiRequestOutputDtypeExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:
