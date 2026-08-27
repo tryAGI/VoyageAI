@@ -19,7 +19,7 @@ namespace VoyageAI
         /// </summary>
         Document,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenapiJsonNullSentinelValue2bf936000fe44250987aE5ddb203e464,
         /// <summary>

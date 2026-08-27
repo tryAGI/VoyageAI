@@ -139,7 +139,7 @@ namespace VoyageAI
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -337,7 +337,7 @@ namespace VoyageAI
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // Client error  <p> This indicates an issue with the request format or frequency. Please see our  [Error Codes](https://docs.voyageai.com/docs/error-codes) guide. </p> 
+                            // Client error  <p> This indicates an issue with the request format or frequency. Please see our  [Error Codes](https://docs.voyageai.com/docs/error-codes) guide. </p>
                             if ((int)__response.StatusCode >= 400 && (int)__response.StatusCode <= 499)
                             {
                                 string? __content_4XX = null;
@@ -374,7 +374,7 @@ namespace VoyageAI
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // 
+                            //
                             if ((int)__response.StatusCode >= 500 && (int)__response.StatusCode <= 599)
                             {
                                 string? __content_5XX = null;
