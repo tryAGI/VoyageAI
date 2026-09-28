@@ -146,6 +146,8 @@ internal static partial class EndpointsMultimodalEmbeddingsApiCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"multimodal-embeddings-api", @"Multimodal embedding models
@@ -212,6 +214,7 @@ The Voyage multimodal embedding endpoint returns vector representations for a gi
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }
