@@ -84,6 +84,8 @@ internal static partial class EndpointsRerankerApiCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"reranker-api", @"Rerankers
@@ -154,6 +156,7 @@ Voyage reranker endpoint receives as input a query, a list of documents, and oth
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

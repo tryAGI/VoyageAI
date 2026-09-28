@@ -103,6 +103,8 @@ internal static partial class EndpointsEmbeddingsApiCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"embeddings-api", @"Text embedding models
@@ -175,6 +177,7 @@ Voyage text embedding endpoint receives as input a string (or a list of strings)
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }
