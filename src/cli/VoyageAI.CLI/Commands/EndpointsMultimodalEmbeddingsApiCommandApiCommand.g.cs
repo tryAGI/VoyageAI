@@ -148,9 +148,9 @@ internal static partial class EndpointsMultimodalEmbeddingsApiCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"multimodal-embeddings-api", @"Multimodal embedding models
+        var command = new Command(commandName ?? @"multimodal-embeddings-api", @"Multimodal embedding models
 The Voyage multimodal embedding endpoint returns vector representations for a given list of multimodal inputs consisting of text, images, or an interleaving of both modalities.");
                         command.Options.Add(Inputs);
                         command.Options.Add(Model);

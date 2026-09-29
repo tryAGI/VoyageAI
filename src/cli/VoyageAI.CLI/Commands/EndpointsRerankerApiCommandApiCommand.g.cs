@@ -86,9 +86,9 @@ internal static partial class EndpointsRerankerApiCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"reranker-api", @"Rerankers
+        var command = new Command(commandName ?? @"reranker-api", @"Rerankers
 Voyage reranker endpoint receives as input a query, a list of documents, and other arguments such as the model name, and returns a response containing the reranking results.
 ");
                         command.Options.Add(Query);

@@ -105,9 +105,9 @@ internal static partial class EndpointsEmbeddingsApiCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"embeddings-api", @"Text embedding models
+        var command = new Command(commandName ?? @"embeddings-api", @"Text embedding models
 Voyage text embedding endpoint receives as input a string (or a list of strings) and other arguments such as the preferred model name, and returns a response containing a list of embeddings.");
                         command.Options.Add(InputOption);
                         command.Options.Add(Model);
