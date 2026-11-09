@@ -18,7 +18,7 @@ namespace VoyageAI.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::VoyageAI.MultimodalEmbeddingsApiRequestOutputEncodingExtensions.ToEnum(stringValue) ?? default;
+                        return global::VoyageAI.MultimodalEmbeddingsApiRequestOutputEncodingExtensions.ToEnum(stringValue) ?? throw new global::System.Text.Json.JsonException($"Unknown value '{stringValue}' for global::VoyageAI.MultimodalEmbeddingsApiRequestOutputEncoding.");
                     }
 
                     break;
